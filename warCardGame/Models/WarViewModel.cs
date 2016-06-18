@@ -46,9 +46,7 @@ namespace warCardGame.Models
 
         public static List<Card> generateRandom(int sizeOfHand, Random random)
         {
-            List <Card> cards = new List<Card>()
-            {
-            };
+            List <Card> cards = new List<Card>() {};
 
             for (var i = 0; i < sizeOfHand; i++)
             {
