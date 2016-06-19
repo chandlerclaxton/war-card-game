@@ -6,15 +6,21 @@
     <div class="col-md-6">
         <h2>Player 1</h2>
         <p>
-            @Model.PlayerOneHand.FirstCard.currentSuit
-            @Model.PlayerOneHand.FirstCard.currentValue
+            @foreach (var item in Model.PlayerOneHand.Cards)
+            {
+                <div>@item.currentValue</div>
+            }
+
+            <button onclick="drawCard">drawCard</button>
         </p>
     </div>
     <div class="col-md-6">
         <h2>Player 2</h2>
         <p>
-            @Model.PlayerTwoHand.FirstCard.currentSuit
-            @Model.PlayerTwoHand.FirstCard.currentValue
+            @foreach (var item in Model.PlayerTwoHand.Cards)
+            {
+                <div>@item.currentValue</div>
+            }
         </p>
     </div>
 </div>

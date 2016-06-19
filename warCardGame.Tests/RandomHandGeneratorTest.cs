@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using warCardGame.Models;
 using System.Collections.Generic;
+using warCardGame.Classes;
 
 namespace warCardGame.Tests
 {

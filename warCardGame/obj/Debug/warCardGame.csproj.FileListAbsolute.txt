@@ -11,6 +11,7 @@ D:\code\warCardGame\warCardGame\warCardGame\bin\roslyn\System.Reflection.Metadat
 D:\code\warCardGame\warCardGame\warCardGame\bin\roslyn\vbc.exe
 D:\code\warCardGame\warCardGame\warCardGame\bin\roslyn\VBCSCompiler.exe
 D:\code\warCardGame\warCardGame\warCardGame\bin\roslyn\VBCSCompiler.exe.config
+D:\code\warCardGame\warCardGame\warCardGame\bin\warCardGame.dll.config
 D:\code\warCardGame\warCardGame\warCardGame\bin\warCardGame.dll
 D:\code\warCardGame\warCardGame\warCardGame\bin\warCardGame.pdb
 D:\code\warCardGame\warCardGame\warCardGame\bin\Antlr3.Runtime.dll
@@ -76,6 +77,5 @@ D:\code\warCardGame\warCardGame\warCardGame\bin\Microsoft.Owin.Security.OAuth.xm
 D:\code\warCardGame\warCardGame\warCardGame\bin\Microsoft.Owin.Security.Google.xml
 D:\code\warCardGame\warCardGame\warCardGame\bin\Microsoft.Owin.Security.Twitter.xml
 D:\code\warCardGame\warCardGame\warCardGame\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-D:\code\warCardGame\warCardGame\warCardGame\obj\Debug\warCardGame.csprojResolveAssemblyReference.cache
 D:\code\warCardGame\warCardGame\warCardGame\obj\Debug\warCardGame.dll
 D:\code\warCardGame\warCardGame\warCardGame\obj\Debug\warCardGame.pdb

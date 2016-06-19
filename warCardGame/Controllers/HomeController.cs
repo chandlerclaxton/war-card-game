@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
+using warCardGame.Classes;
 using warCardGame.Models;
 
 namespace warCardGame.Controllers
@@ -13,5 +11,19 @@ namespace warCardGame.Controllers
         {
             return View(new WarViewModel());
         }
+
+        public ActionResult Play(WarViewModel vm)
+        {
+            return View(vm);
+        }
+
+        public ActionResult DrawCard(Hand playerOneHand, Hand playerTwoHand)
+        {
+            var hand = new Hand();
+            HandResult result = hand.PlayGame(playerOneHand, playerTwoHand);
+            return Play(new WarViewModel());
+        }
+
+        
     }
 }
