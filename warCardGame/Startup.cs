@@ -8,7 +8,7 @@ namespace warCardGame
     {
         public void Configuration(IAppBuilder app)
         {
-            ConfigureAuth(app);
+
         }
     }
 }
