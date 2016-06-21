@@ -16,11 +16,6 @@ namespace warCardGame.Classes
 //            FirstCard = cards.Dequeue();
         }
 
-        public Hand()
-        {
-            throw new NotImplementedException();
-        }
-
         public static Queue<Card> generateRandom(int sizeOfHand, Random random)
         {
             Queue<Card> cards = new Queue<Card>() { };
@@ -75,14 +70,19 @@ namespace warCardGame.Classes
         private HandResult _startAWar(Hand playerOneHand, Hand playerTwoHand)
         {
             Queue<Card> winnerCards = new Queue<Card>();
+
+            //Put the first match into the winner's cards
+            winnerCards.Enqueue(playerOneHand.Cards.Dequeue());
+            winnerCards.Enqueue(playerTwoHand.Cards.Dequeue());
+
             bool didPlayerWin = false;
             bool warIsNotOver = true;
             while (warIsNotOver)
             {
-                Card playerOneTopCard = playerOneHand.Cards.Dequeue();
-                Card playerTwoTopCard = playerTwoHand.Cards.Dequeue();
                 Card playerOneHiddenCard = playerOneHand.Cards.Dequeue();
                 Card playerTwoHiddenCard = playerTwoHand.Cards.Dequeue();
+                Card playerOneTopCard = playerOneHand.Cards.Dequeue();
+                Card playerTwoTopCard = playerTwoHand.Cards.Dequeue();
 
                 //Put the facedown and face up cards into a winner's pile
                 winnerCards.Enqueue(playerOneTopCard);

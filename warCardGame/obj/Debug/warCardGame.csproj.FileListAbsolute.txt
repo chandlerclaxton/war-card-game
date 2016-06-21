@@ -79,3 +79,4 @@ D:\code\warCardGame\warCardGame\warCardGame\bin\Microsoft.Owin.Security.Twitter.
 D:\code\warCardGame\warCardGame\warCardGame\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 D:\code\warCardGame\warCardGame\warCardGame\obj\Debug\warCardGame.dll
 D:\code\warCardGame\warCardGame\warCardGame\obj\Debug\warCardGame.pdb
+D:\code\warCardGame\warCardGame\warCardGame\obj\Debug\warCardGame.csprojResolveAssemblyReference.cache

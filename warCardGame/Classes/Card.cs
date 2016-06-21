@@ -18,5 +18,27 @@ namespace warCardGame.Classes
             currentSuit = random.Next(0, 3);
             currentValue = random.Next(1, 13);
         }
+
+        public Card(int value, int suit)
+        {
+            currentValue = value;
+            currentSuit = suit;
+        }
+
+        public override bool Equals(System.Object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+
+            Card card = obj as Card;
+            if (currentSuit == card.currentSuit && currentValue == card.currentValue)
+            {
+                return true;
+            }
+
+            return false;
+        }
     }
 }

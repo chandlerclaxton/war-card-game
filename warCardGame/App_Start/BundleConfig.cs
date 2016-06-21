@@ -23,6 +23,10 @@ namespace warCardGame
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/custom").Include(
+                      "~/Scripts/view.js",
+                      "~/Scripts/knockout-v3.4.js"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Web.Mvc;
 using warCardGame.Classes;
 using warCardGame.Models;
@@ -12,18 +13,17 @@ namespace warCardGame.Controllers
             return View(new WarViewModel());
         }
 
-        public ActionResult Play(WarViewModel vm)
+        public void Play(WarViewModel vm)
         {
-            return View(vm);
+            RedirectToAction("DrawCard");
         }
 
-        public ActionResult DrawCard(Hand playerOneHand, Hand playerTwoHand)
+        public WarViewModel DrawCard(Hand playerOneHand, Hand playerTwoHand)
         {
-            var hand = new Hand();
+            Random random = new Random();
+            var hand = new Hand(Hand.generateRandom(26, random));
             HandResult result = hand.PlayGame(playerOneHand, playerTwoHand);
-            return Play(new WarViewModel());
+            return new WarViewModel();
         }
-
-        
     }
 }

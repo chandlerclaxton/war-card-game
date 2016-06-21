@@ -1,8 +1,11 @@
 ﻿$(function () {
-    var drawCard = function () {
+    drawCard = function () {
+        console.log('test');
         $.ajax({
-            href: "",
-            data: {}
+            href: "/Play",
+            data: {
+                model
+            }
         })
     };
 });
