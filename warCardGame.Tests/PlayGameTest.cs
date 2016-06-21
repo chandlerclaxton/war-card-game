@@ -9,29 +9,29 @@ namespace warCardGame.Tests
     [TestClass]
     public class PlayGameTest
     {
+        private GameService _service;
+        private Queue<Card> _playerOneCards;
+        private Queue<Card> _playerTwoCards;
+
         [TestInitialize]
         public void Setup()
         {
-
+            _service = new GameService();
+            _playerOneCards = new Queue<Card>();
+            _playerTwoCards = new Queue<Card>();
         }
 
         [TestMethod]
         public void PlayerLosesHandWhenExpectedTest()
         {
             //3 > 2
-            Random random = new Random();
-            Hand justHand = new Hand(Hand.generateRandom(26, random));
+            _playerOneCards.Enqueue(new Card(2,1));
+            Hand playerOneHand = new Hand(_playerOneCards);
 
-            var playerOneCards = new Queue<Card>();
-            playerOneCards.Enqueue(new Card(2,1));
+            _playerTwoCards.Enqueue(new Card(3,1));
+            Hand playerTwoHand = new Hand(_playerTwoCards);
 
-            Hand playerOneHand = new Hand(playerOneCards);
-
-            var playerTwoCards = new Queue<Card>();
-            playerTwoCards.Enqueue(new Card(3,1));
-            Hand playerTwoHand = new Hand(playerTwoCards);
-
-            HandResult result = justHand.PlayGame(playerOneHand, playerTwoHand);
+            HandResult result = _service.PlayGame(playerOneHand, playerTwoHand);
 
             Assert.AreEqual(false, result.DidPlayerWin);
         }
@@ -40,19 +40,14 @@ namespace warCardGame.Tests
         public void PlayerWinsHandWhenExpectedTest()
         {
             //3 > 2
-            Random random = new Random();
-            Hand justHand = new Hand(Hand.generateRandom(26, random));
+            _playerOneCards.Enqueue(new Card(3,1));
 
-            var playerOneCards = new Queue<Card>();
-            playerOneCards.Enqueue(new Card(3,1));
+            Hand playerOneHand = new Hand(_playerOneCards);
 
-            Hand playerOneHand = new Hand(playerOneCards);
+            _playerTwoCards.Enqueue(new Card(2,1));
+            Hand playerTwoHand = new Hand(_playerTwoCards);
 
-            var playerTwoCards = new Queue<Card>();
-            playerTwoCards.Enqueue(new Card(2,1));
-            Hand playerTwoHand = new Hand(playerTwoCards);
-
-            HandResult result = justHand.PlayGame(playerOneHand, playerTwoHand);
+            HandResult result = _service.PlayGame(playerOneHand, playerTwoHand);
 
             Assert.AreEqual(true, result.DidPlayerWin);
         }
@@ -61,25 +56,22 @@ namespace warCardGame.Tests
         public void PlayerWinsCardsInWarTest()
         {
             //3 == 3, and 11 > 10
-            Random random = new Random();
-            Hand justHand = new Hand(Hand.generateRandom(26, random));
+            _playerOneCards.Enqueue(new Card(3,1));
+            _playerOneCards.Enqueue(new Card(2,1));
+            _playerOneCards.Enqueue(new Card(11,1));
+            Hand playerOneHand = new Hand(_playerOneCards);
 
-            var playerOneCards = new Queue<Card>();
-            playerOneCards.Enqueue(new Card(3,1));
-            playerOneCards.Enqueue(new Card(2,1));
-            playerOneCards.Enqueue(new Card(11,1));
+            _playerTwoCards.Enqueue(new Card(3,1));
+            _playerTwoCards.Enqueue(new Card(12,1));
+            _playerTwoCards.Enqueue(new Card(10,1));
+            Hand playerTwoHand = new Hand(_playerTwoCards);
 
-            Hand playerOneHand = new Hand(playerOneCards);
-
-            var playerTwoCards = new Queue<Card>();
-            playerTwoCards.Enqueue(new Card(3,1));
-            playerTwoCards.Enqueue(new Card(12,1));
-            playerTwoCards.Enqueue(new Card(10,1));
-            Hand playerTwoHand = new Hand(playerTwoCards);
-
-            HandResult result = justHand.PlayGame(playerOneHand, playerTwoHand);
+            HandResult result = _service.PlayGame(playerOneHand, playerTwoHand);
 
             Queue<Card> expectedWinnerHand = new Queue<Card>();
+
+            //This queue is explicitly too specific, since the rules of war
+            //do not necessitate that the won cards need to be in a specific order
             expectedWinnerHand.Enqueue(new Card(3, 1));
             expectedWinnerHand.Enqueue(new Card(3, 1));
             expectedWinnerHand.Enqueue(new Card(11, 1));

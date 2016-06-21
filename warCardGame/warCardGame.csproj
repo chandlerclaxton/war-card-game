@@ -194,6 +194,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Classes\Card.cs" />
+    <Compile Include="Classes\GameService.cs" />
     <Compile Include="Classes\Hand.cs" />
     <Compile Include="Classes\HandResult.cs" />
     <Compile Include="Controllers\HomeController.cs" />

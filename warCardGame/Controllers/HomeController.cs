@@ -22,7 +22,8 @@ namespace warCardGame.Controllers
         {
             Random random = new Random();
             var hand = new Hand(Hand.generateRandom(26, random));
-            HandResult result = hand.PlayGame(playerOneHand, playerTwoHand);
+            GameService _service = new GameService();
+            HandResult result = _service.PlayGame(playerOneHand, playerTwoHand);
             return new WarViewModel();
         }
     }
